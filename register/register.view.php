@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
-                <input type="password" class="form-control <?=($errors['password'])?"is-invalid":""?>" id="password" name="password" aria-describedby="passwordHelp" placeholder="Password">
+                <input type="password" class="form-control <?=($errors['password'])?"is-invalid":""?>" id="password" name="password" aria-describedby="passwordHelp" placeholder="Introduzca su contraseña">
                 <small id="passwordHelp" class="form-text text-muted">Debe tener 6 caracteres como mínimo.</small>
                 <?php if( !empty($errors['password']) ): ?> 
                 <div class="invalid-feedback">
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="password-conf">Confirmar contraseña</label>
-                <input type="password" class="form-control <?=($errors['passwordconf'])?"is-invalid":""?>" id="password-conf" name="password-conf" placeholder="Password">
+                <input type="password" class="form-control <?=($errors['passwordconf'])?"is-invalid":""?>" id="password-conf" name="password-conf" placeholder="Repita su contraseña">
                 <?php if( !empty($errors['passwordconf']) ): ?> 
                 <div class="invalid-feedback">
                     <?php foreach ($errors['passwordconf'] as $error): ?>

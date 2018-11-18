@@ -1,5 +1,6 @@
 <?php
 
+// Conexión con la base de datos
 $db = mysqli_connect ("localhost", "root", "", "proyectodb");
 
 
