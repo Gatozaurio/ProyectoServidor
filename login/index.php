@@ -27,6 +27,7 @@
             // lanza una consula contra la bd |conexión|consulta|
             $login = mysqli_query($db, $sql);
             $ip = $_SERVER['REMOTE_ADDR'];
+            $browser = $_SERVER['HTTP_USER_AGENT'];
 
             if($login && mysqli_num_rows($login) == 1 ){
 
@@ -34,7 +35,7 @@
 
                 if( password_verify($password, $usuario['password']) ){
                     // Manda una consulta con los datos de la conexión exitosa
-                    $query = "INSERT into logins VALUES(NULL, true, 'N/A', '$ip', '$username',NOW() )";
+                    $query = "INSERT into logins VALUES(NULL, '$username', '$ip', '$browser', 'OK', NOW() )";
                     mysqli_query($db, $query);
                     // Se crea la sesión de usuario
                     session_start();
@@ -43,13 +44,13 @@
                     header('Location: '.APP_URL);
                 }else{
                     // Manda una consulta avisando de la conexión errónea por haber introducido una contraseña incorrecta
-                    $query = "INSERT into logins VALUES(NULL, false, 'password', '$ip', '$username',NOW() )";
+                    $query = "INSERT into logins VALUES(NULL, '$username', '$ip', '$browser', 'wrong pass', NOW() )";
                     mysqli_query($db, $query);
                     $errors['login']['password'] = "La contraseña no es correcta";
                 }
             }else{
                 // Manda una consulta avisando de la conexión errónea por haber introducido un usuario incorrecto
-                $query = "INSERT into logins VALUES(NULL, false,'username', '$ip', '$username',NOW() )";
+                $query = "INSERT into logins VALUES(NULL, '$username', '$ip', '$browser', 'wrong username', NOW() )";
                 mysqli_query($db, $query);
                 $errors['login']['username'] = "El usuario es incorrecto";
             }

@@ -25,8 +25,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <?php if( isset($_SESSION['userdata']) ): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Perfil</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Conciertos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Mis conciertos</a>
+                                <a class="dropdown-item" href="<?=APP_URL?>crear_concierto">Crear concierto</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link" href="<?=APP_URL?>logout">Salir</a>
