@@ -65,8 +65,8 @@ CREATE TABLE `users` (
   `username` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` TIMESTAMP NOT NULL default now(),
+  `updated_at` TIMESTAMP NOT NULL default now() on update now()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
 --

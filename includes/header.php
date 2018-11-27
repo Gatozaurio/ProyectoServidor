@@ -25,6 +25,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <?php if( isset($_SESSION['userdata']) ): ?>
+                        <li class="nav-item">
+                            <a class="nav-link link-important" href="<?=APP_URL?>profile"><?=$_SESSION['userdata']['username']?></a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                             Conciertos

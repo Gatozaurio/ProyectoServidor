@@ -31,7 +31,7 @@
         if( empty($errors) ){
             // Insertar usuario en la base de datos
             $user_id = $_SESSION['usuario']['id'];
-            $sql = "INSERT INTO lists VALUES(NULL, $user_id, '$listname', '$description', NOW(), NOW())";
+            $sql = "INSERT INTO lists(id, user_id, name, description) VALUES(NULL, $user_id, '$listname', '$description')";
 
             $guardar = mysqli_query($db, $sql);
 
