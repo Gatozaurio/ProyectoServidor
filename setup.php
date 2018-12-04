@@ -13,3 +13,5 @@ define('APP_URL',$url.$serverName.$request);
 define('APP_PATH', __DIR__);
 /** Nombre de la aplicación */
 define('APP_NAME', 'PurrHub');
+
+session_start();

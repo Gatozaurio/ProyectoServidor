@@ -1,19 +1,26 @@
 <?php
     require_once '../setup.php';
     require_once '../includes/header.php';
+    require_once '../helpers/helpers.php';
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Perfil</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    Perfil de <?=$_SESSION['userdata']['username']?>.
-</body>
-</html>
+    <h1><strong><?=$_SESSION['userdata']['username']?></strong> | Perfil</h1>
+    
+    <div class="container">
+    <div class="offset-3 col-6 pt-4 pb-4">
+        <form action="" method="POST" novalidate>
+        <div class="form-group">
+                <label for="username">Cambiar nombre</label>
+                <input type="text" class="form-control <?=($errors['username'])?"is-invalid":""?>" id="username" name="username" aria-describedby="usernameHelp" placeholder="Nuevo nombre" value="<?=($username??'')?>">
+                <small id="usernameHelp" class="form-text text-muted">Debe tener como mínimo 6 caracteres con números y letras.</small>
+                <?php if( !empty($errors['username']) ) {
+                    echo mostrarErroresFormulario($errors, 'username');
+                } ?>
+            </div>
+            
+            <button type="submit" name="editar" class="btn btn-primary">Ejecutar cambios</button>
+        </form>
+    </div>
+</div>
+
+<?php require_once '../includes/footer.php'; ?>

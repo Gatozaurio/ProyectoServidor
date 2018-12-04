@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php  //session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,7 +33,7 @@
                             Conciertos
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Mis conciertos</a>
+                                <a class="dropdown-item" href="<?=APP_URL?>mis_conciertos">Mis conciertos</a>
                                 <a class="dropdown-item" href="<?=APP_URL?>crear_concierto">Crear concierto</a>
                             </div>
                         </li>
