@@ -34,6 +34,7 @@ if( isset($_POST['editar'])){
         $result = mysqli_query($db, $query);
 
         if( $result ){ // Si todo va bien redirige al index
+            $_SESSION['userdata']['username'] = $username;
             header("Location: /proyectoServidor/");
         }else{
             die("Error en al guardar en la base de datos.");

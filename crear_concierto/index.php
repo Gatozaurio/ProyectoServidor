@@ -61,7 +61,7 @@
                 // Redirigir a la página de Mis listas
                 header("Location: ".BASE_URL.'list/?id='.$id);
                 die(); */
-                header('Location:'.APP_URL.'profile');
+                header('Location:'.APP_URL.'mis_conciertos');
                 die();
             } 
 
