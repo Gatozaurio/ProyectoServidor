@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2018 a las 13:11:29
+-- Tiempo de generación: 16-12-2018 a las 13:46:03
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -25,6 +25,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `artists`
+--
+
+CREATE TABLE `artists` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf8_general_mysql500_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+
+--
+-- Volcado de datos para la tabla `artists`
+--
+
+INSERT INTO `artists` (`id`, `user_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 1, 'SFDK', '2018-12-16 11:17:43', '2018-12-16 11:17:43'),
+(2, 1, 'El Reno Renardo', '2018-12-16 11:21:31', '2018-12-16 11:21:31'),
+(3, 1, 'Alestorm', '2018-12-16 11:23:12', '2018-12-16 11:23:12'),
+(4, 1, 'Los Quetedije', '2018-12-16 11:25:27', '2018-12-16 11:25:27'),
+(7, 1, 'El Fary', '2018-12-16 11:27:56', '2018-12-16 11:27:56'),
+(8, 1, 'Narco', '2018-12-16 11:28:02', '2018-12-16 11:28:02'),
+(9, 1, 'Desakato', '2018-12-16 11:40:12', '2018-12-16 11:40:12');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `concerts`
 --
 
@@ -33,9 +60,9 @@ CREATE TABLE `concerts` (
   `user_id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_general_mysql500_ci NOT NULL,
   `location` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
-  `price` decimal(10,0) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
 --
@@ -43,17 +70,18 @@ CREATE TABLE `concerts` (
 --
 
 INSERT INTO `concerts` (`id`, `user_id`, `name`, `location`, `price`, `created_at`, `updated_at`) VALUES
-(12, 1, 'hr', 'rrrrr', '3', '2018-12-03 10:05:37', '2018-12-03 10:05:37'),
-(13, 1, 'www', 'wwwww', '2', '2018-12-03 10:05:43', '2018-12-03 10:05:43'),
-(14, 9, 'dwadwad', 'dwadad', '2', '2018-12-03 10:10:43', '2018-12-03 10:10:43'),
-(15, 9, 'dwadwa', 'dwadawd', '1', '2018-12-03 10:12:06', '2018-12-03 10:12:06'),
-(16, 9, 'DWADAWDAW', 'WADWAD', '2', '2018-12-03 10:12:52', '2018-12-03 10:12:52'),
-(17, 9, 'dwadawdwa', 'dwadwadwad', '2', '2018-12-03 10:17:11', '2018-12-03 10:17:11'),
-(18, 9, 'Lendakaris Muertos', 'Sala Malandar, Sevilla', '12', '2018-12-03 10:17:57', '2018-12-03 10:17:57'),
-(19, 10, 'Lendakaris Muertos', 'Sala Malandar, Sevilla', '20', '2018-12-03 11:12:01', '2018-12-03 11:12:01'),
-(20, 10, 'Alestorm', 'Sala X, Sevilla', '24', '2018-12-03 11:13:50', '2018-12-03 11:13:50'),
-(21, 10, 'Hola', 'Sala X, Sevilla', '22', '2018-12-03 11:17:34', '2018-12-03 11:17:34'),
-(22, 10, 'Ofunkillo', 'Sala Malandar, Sevilla', '12', '2018-12-03 11:18:30', '2018-12-03 11:18:30');
+(1, 1, 'SFDK', 'Auditorio Rocío Jurado, Sevilla', '25.00', '2018-12-16 12:28:57', '2018-12-16 12:28:57'),
+(2, 1, 'SFDK', 'Sala París 15, Málaga', '18.00', '2018-12-16 12:30:23', '2018-12-16 12:30:23'),
+(4, 1, 'El Fary', 'Mandanga Fest, Sevilla', '30.00', '2018-12-16 12:31:40', '2018-12-16 12:31:40'),
+(5, 1, 'El Reno Renardo', 'Sala Malandar, Sevilla', '15.00', '2018-12-16 12:32:22', '2018-12-16 12:32:22'),
+(6, 1, 'Capitán Cobarde', 'Centro Andaluz de Arte Contemporáneo, Sevilla', '20.00', '2018-12-16 12:34:34', '2018-12-16 12:34:34'),
+(7, 1, 'Caracoles en salsa', 'Sala Malandar, Sevilla', '0.00', '2018-12-16 12:35:27', '2018-12-16 12:35:27'),
+(8, 1, 'SFDK', 'Sala Meloinvento, Barcelona', '18.00', '2018-12-16 12:36:30', '2018-12-16 12:36:30'),
+(9, 1, 'Narco', 'Sala X, Sevilla', '12.00', '2018-12-16 12:37:54', '2018-12-16 12:37:54'),
+(10, 1, 'Narco', 'Centro Andaluz de Arte Contemporáneo, Sevilla', '22.00', '2018-12-16 12:38:17', '2018-12-16 12:38:17'),
+(11, 1, 'Los Quetedije', 'Bar Retórica, Sevilla', '0.00', '2018-12-16 12:39:11', '2018-12-16 12:39:11'),
+(15, 1, 'Porn (Tributo a Korn)', 'Sala X, Sevilla', '10.50', '2018-12-16 12:46:37', '2018-12-16 12:46:37'),
+(16, 1, 'El Reno Renardo', 'Sala Pimpollo, Murcia', '8.00', '2018-12-16 12:47:49', '2018-12-16 12:47:49');
 
 -- --------------------------------------------------------
 
@@ -75,27 +103,43 @@ CREATE TABLE `logins` (
 --
 
 INSERT INTO `logins` (`id`, `username`, `ip`, `agent`, `status`, `created_at`) VALUES
-(1, '0', 'username', '::1', '', '2018-11-26 10:46:13'),
-(2, '1', 'N/A', '::1', '', '2018-11-26 10:46:53'),
-(3, '0', 'username', '::1', '', '2018-11-26 10:49:50'),
-(4, 'ffdwa', '::1', 'agente', 'wrong username', '2018-11-26 10:53:59'),
-(5, 'dadawdw', '::1', 'agente', 'wrong username', '2018-11-26 10:54:05'),
-(6, 'dadawdw', '127.0.0.1', 'agente', 'wrong username', '2018-11-26 10:56:33'),
-(7, 'patata25', '127.0.0.1', 'agente', 'OK', '2018-11-26 10:56:40'),
-(8, 'dwadawda', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'wrong username', '2018-11-26 11:04:16'),
-(9, 'patata25', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-11-26 11:11:10'),
-(10, 'patata25', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-11-26 11:36:47'),
-(11, 'patata25', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-11-26 11:52:06'),
-(12, 'patata25', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-03 06:49:41'),
-(13, 'patata25', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-03 08:51:27'),
-(14, 'patata25', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-03 09:10:31'),
-(15, 'patata25', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-03 09:34:13'),
-(16, 'patatoide', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-03 10:11:17'),
-(17, 'patatoide', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-03 19:04:41'),
-(18, 'patatoide', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-04 10:07:44'),
-(19, 'patatoide', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-04 11:27:07'),
-(20, 'patatoide', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-04 11:32:42'),
-(21, 'patatoide', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-04 11:47:42');
+(1, 'gatosaurio', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'wrong username', '2018-12-16 11:10:52'),
+(2, 'patatoide', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'wrong username', '2018-12-16 11:13:51'),
+(3, 'manolo', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-16 11:14:09'),
+(4, 'cacafuti', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'wrong username', '2018-12-16 11:24:17'),
+(5, 'manolo', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'wrong pass', '2018-12-16 11:24:28'),
+(6, 'manolo', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-16 11:24:34'),
+(7, 'manolo', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'wrong pass', '2018-12-16 12:10:59'),
+(8, 'manolo', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0', 'OK', '2018-12-16 12:11:05');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `notes`
+--
+
+CREATE TABLE `notes` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `concert_id` int(11) NOT NULL,
+  `text` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+
+--
+-- Volcado de datos para la tabla `notes`
+--
+
+INSERT INTO `notes` (`id`, `user_id`, `concert_id`, `text`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'Comprar ron!!', '2018-12-16 11:52:04', '2018-12-16 11:52:04'),
+(2, 1, 1, 'Recoger a Guille', '2018-12-16 11:52:12', '2018-12-16 11:52:12'),
+(4, 1, 2, 'Llevar suelto para el peaje', '2018-12-16 11:53:18', '2018-12-16 11:53:18'),
+(5, 1, 4, 'Llevar la mandanga', '2018-12-16 11:53:41', '2018-12-16 11:53:41'),
+(6, 1, 5, 'Comprar cervezas', '2018-12-16 11:54:05', '2018-12-16 11:54:05'),
+(10, 1, 9, 'Comprar entradas', '2018-12-16 12:04:05', '2018-12-16 12:04:05'),
+(11, 1, 11, 'Recoger cable del local', '2018-12-16 12:04:27', '2018-12-16 12:04:27'),
+(12, 1, 16, 'Avisar a Vicente', '2018-12-16 12:04:43', '2018-12-16 12:04:59');
 
 -- --------------------------------------------------------
 
@@ -109,7 +153,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_general_mysql500_ci NOT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
 --
@@ -117,20 +161,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'adadawdw', 'patata@gmail.com', '$2y$10$gb/i47WmQVQ0N7ss9haDM.Z5insqRP5GE8xcD1wzbCHjv8gIZ8Dgu', '2018-11-12 11:47:52', '2018-11-12 11:47:52'),
-(2, 'manolito', 'manolo@gmail.com', '$2y$10$qrHoyUW1RWpXiPegRVJdJe4FjoDk/7vnI6SwuVE7g7FtSbs6AM5vu', '2018-11-12 11:49:22', '2018-11-12 11:49:22'),
-(3, 'Gatosaurio25', 'tavora25@gmail.com', '$2y$10$W4kMsK7svNX6i1tVvcRCqOwl.klzYlDjMizjBxmmq1EwGsvRe.Rfu', '2018-11-12 12:04:41', '2018-11-12 12:04:41'),
-(4, 'dadw dawdwa', 'pelusa@gmail.com', '$2y$10$EE1UMReVITgPDdJPxk/KWevI2oC9GVBVZ8pYJ3VsLgBDkVp4Dx9uu', '2018-11-17 17:58:17', '2018-11-17 17:58:17'),
-(5, 'dadw dawdwaD', 'pelusa@gmail.com', '$2y$10$FMuhadxfAJVgA.wJl.NOZ.TDS/MVU233xqfgXnKpSj1SNhpr7RSgK', '2018-11-17 18:14:31', '2018-11-17 18:14:31'),
-(6, '%\"dadw', 'manoloooo@gmail.com', '$2y$10$ZkvrSrePxUr2Mt8PCVNgWeWvzstUmB.rdEGWKv5My3mlLucwniXo6', '2018-11-17 18:16:05', '2018-11-17 18:16:05'),
-(7, 'daddwadwad', 'pelusa@gmail.com', '$2y$10$t8T1x1KH2s8YmCT.ZNykZeK3WpnmcSF/UVWyYztjiMElff/w8HcYC', '2018-11-17 20:38:44', '2018-11-17 20:38:44'),
-(8, 'patata', 'patata@gmail.com', '$2y$10$sAHm/YpF7k4g42rL16K90uPsmVyCiz7EbawAu.I81hYdT2KeqQvdK', '2018-11-17 21:11:19', '2018-11-17 21:11:19'),
-(9, 'patata25', 'patata@gmail.com', '$2y$10$Q0j2pk8WYpzdKOaanqcCa.wGKFt/WtY7LhqCRHTrzxgOmu4tuL8SK', '2018-11-26 11:46:45', '2018-11-26 11:46:45'),
-(10, 'patatoide', 'patatoide@gmail.com', '$2y$10$djEG9sQ7yO20ZDOBAgtDI.QeM8J2olAbmCkcUrteVyS1z1xrsGumK', '2018-12-03 11:11:05', '2018-12-03 11:11:05');
+(1, 'Manolo', 'manolito@gmail.com', '$2y$10$zrrBAeZQBBEuTgaYb6KYB.ueFepPpqixLS.J65XmVFczopuqH1UT.', '2018-12-16 12:13:15', '2018-12-16 13:06:24');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `artists`
+--
+ALTER TABLE `artists`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `concerts`
@@ -146,6 +188,14 @@ ALTER TABLE `logins`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `notes`
+--
+ALTER TABLE `notes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `concert_id` (`concert_id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -156,22 +206,34 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `artists`
+--
+ALTER TABLE `artists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de la tabla `concerts`
 --
 ALTER TABLE `concerts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `notes`
+--
+ALTER TABLE `notes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -182,6 +244,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `concerts`
   ADD CONSTRAINT `concerts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `notes`
+--
+ALTER TABLE `notes`
+  ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`concert_id`) REFERENCES `concerts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

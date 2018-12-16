@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="<?=APP_URL?>css/styles.css">
     <title><?=APP_NAME?></title>
   </head>
@@ -16,7 +17,7 @@
     <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="<?=APP_URL?>">
-                <?=APP_NAME?>
+                <i class="fas fa-cat"></i>  PurrHub
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,7 +27,7 @@
                 <ul class="navbar-nav ml-auto">
                     <?php if( isset($_SESSION['userdata']) ): ?>
                         <li class="nav-item">
-                            <a class="nav-link link-important" href="<?=APP_URL?>profile"><?=$_SESSION['userdata']['username']?></a>
+                            <a class="nav-link link-important" href="<?=APP_URL?>profile"></i> <?=$_SESSION['userdata']['username']?></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
@@ -35,6 +36,15 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?=APP_URL?>mis_conciertos">Mis conciertos</a>
                                 <a class="dropdown-item" href="<?=APP_URL?>crear_concierto">Crear concierto</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            Artistas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?=APP_URL?>mis_artistas">Mis artistas</a>
+                                <a class="dropdown-item" href="<?=APP_URL?>crear_artista">Añadir artista</a>
                             </div>
                         </li>
                         <li class="nav-item">

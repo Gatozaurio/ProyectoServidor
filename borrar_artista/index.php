@@ -16,15 +16,15 @@ if ( !isset($_GET['id']) ){
     header("Location: ".APP_URL.'login');
     die();
 }
-$concert_id = $_GET['id'];
+$artist_id = $_GET['id'];
 
-// Comprobar que el concierto pertenece al usuario logeado
-if( !checkConcertOwner($db, $concert_id, $user_id) ){
+// Comprobar que la el artista pertenece al usuario logueado
+if( !checkArtistOwner($db, $artist_id, $user_id) ){
     header("Location: ".APP_URL);
     die();
 }
 
-$query = "DELETE FROM concerts WHERE id = $concert_id AND user_id = $user_id LIMIT 1";
+$query = "DELETE FROM artists WHERE id = $artist_id AND user_id = $user_id LIMIT 1";
 $result = mysqli_query($db, $query);
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);

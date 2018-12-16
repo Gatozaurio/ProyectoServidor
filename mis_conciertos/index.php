@@ -3,11 +3,11 @@
 require_once '../setup.php';
 require_once '../database/conexion.php';
 
-// Impide que se acceda a mis conciertos sin estar logeado
+// Impide que se acceda a mis conciertos sin estar logueado
 if ( empty($_SESSION) ){
     header("Location: ".APP_URL.'login');
     die();
-} 
+}
 
 $user_id = $_SESSION['userdata']['id'];
 
